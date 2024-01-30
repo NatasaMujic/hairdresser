@@ -1,0 +1,218 @@
+.button1{
+    position: absolute;
+    background-color: #c8a2c8;
+    top: 65%;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size:20px;
+    padding: 10px;
+    color: black;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+}
+.button1:hover {
+    background-color: #ffdc73;
+    color: white;
+    border: 1px solid white;
+
+}
+.nav-link:hover{
+    background-color: #c8a2c8;
+    border-radius: 8px;
+
+}
+.first{
+    margin-right: 20px;
+
+}
+.firstTitle{
+    font-family: 'Zeyada', cursive;
+
+}
+.firstTitle{
+    border-bottom: 3px solid #ffdc73;
+    width: 85px;
+    font-size: 52px;
+
+}
+.firstParText{
+    font-family: 'Poiret One', sans-serif;
+    font-size: 22px;
+}
+.second, .fourth{
+   border: 1px solid #c2c1c1;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0.1, 0.2);
+    padding: 25px;
+    margin-right: 20px;
+}
+.color{
+    font-family: 'Poiret One', sans-serif;
+    font-size: 16px;
+}
+.third, .fifth{
+    border: 1px solid #c2c1c1;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0.1, 0.2);
+    padding: 25px;
+    background-color: #f4eada;
+    margin-right: 20px;
+    position: relative;
+    top: 50px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.section2{
+    background-color: #f4eada;
+    padding: 40px;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+}
+.section3{
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+    padding: 40px;
+}
+.section4{
+
+    margin-bottom: 8px;
+}
+.txt{
+    position: absolute;
+    color: white;
+    margin-top: 60px;
+    margin-left: 210px;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+}
+.s:hover,
+.s:hover {
+    background-color: lightgray;
+}
+.section6, .section7, .section8{
+    border: 1px solid #c2c1c1;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0.1, 0.3);
+    padding: 20px;
+    width: fit-content;
+}
+.thirdTitle{
+    border-bottom: 3px solid #ffdc73;
+    font-family: 'Zeyada', cursive;
+}
+.but{
+    position: absolute;
+    background-color: #ffdc73;
+    top: 65%;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size:20px;
+    padding: 10px;
+    color: #000000;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+}
+.but:hover {
+    background-color: #c8a2c8;
+    color: white;
+    border: 1px solid white;
+
+}
+.but1{
+    position: absolute;
+    background-color:  #c8a2c8;
+    top: 65%;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size:20px;
+    padding: 10px;
+    color: #ffffff;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+}
+.but1:hover {
+    background-color: #ffdc73;
+    color: black;
+    border: 1px solid white;
+
+}
+.nav1, .nav2, .nav3{
+    font-family: 'Poiret One', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+
+}
+.but2{
+    background-color: #c8a2c8;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    color: #ffffff;
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+    width: fit-content;
+}
+.but2:hover {
+    background-color: #ffdc73;
+    color: black;
+}
+
+
+.service-images{
+      width: 280px;
+      height: 180px;
+}
+
+.service-title{
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+
+}
+.service-paragraph{
+    font-family: 'Poiret One', sans-serif;
+    margin-left: 20px;
+}
+.service-h5title{
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.service-link{
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #c8a2c8;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 19px;
+    color: white;
+}
+.service-discount{
+    font-family: 'Poiret One', sans-serif;
+    margin-left: 20px;
+    text-decoration-line: line-through;
+}
+.discount-paragraph{
+    font-family: 'Poiret One', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #e3cbe3;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 15px;
+    color: #c96dc9;
+    width: fit-content;
+    margin-left: 20px;
+}
