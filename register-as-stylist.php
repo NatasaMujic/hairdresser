@@ -39,7 +39,7 @@ include 'db_config.php';
 <body>
 
 <div class="container">
-    <form class="form-signup text-center" id="registerForm" method="post" action="stylist-dashboard.php">
+    <form class="form-signup text-center" id="registerForm" method="post" action="php-registration-stylist.php">
         <div class="logo">
             <img src="index-images/logo.png">        </div>
         <h2>Register as stylist</h2>
@@ -80,7 +80,7 @@ include 'db_config.php';
             <div class="form-group">
                 <div class="col-md-12">
                     <span id="phonenumberError"></span>
-                    <input type="number" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number">
+                    <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number">
                 </div>
             </div>
         <br>
@@ -98,7 +98,17 @@ include 'db_config.php';
 
             </div>
         </div>
+        <br>
+        <div class="form-group">
+            <span id="emailError"></span>
+            <input type="text" class="form-control" id="service-type" name="service-type" placeholder="Service type">
+        </div>
 
+        <br>
+        <div class="form-group">
+            <span id="emailError"></span>
+            <input type="text" class="form-control" id="website" name="website" placeholder="Website">
+        </div>
         <br>
         <div class="form-group">
             <span id="emailError"></span>

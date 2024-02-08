@@ -9,56 +9,6 @@ $password = '';
 
 $pdo = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["password2"])) {
-        $firstName = $_POST["firstname"];
-        $lastName = $_POST["lastname"];
-        $age = $_POST["age"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $confirmPassword = $_POST["password2"];
-
-        if (empty($firstName) || empty($lastName) || empty($age) || empty($email) || empty($password) || empty($confirmPassword)) {
-            echo "All fields required!";
-        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "Email is not valid!";
-        } elseif ($password !== $confirmPassword) {
-            echo "Passwords do not match!";
-        } else {
-            // Check if user already exists in the database
-            $stmt = $pdo->prepare("SELECT * FROM registered_user WHERE user_email = :email");
-            $stmt->execute(['email' => $email]);
-            $existingUser = $stmt->fetch();
-
-            if ($existingUser) {
-                echo "User with this email already exists!";
-            } else {
-                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-                // adding activation code
-                $activationCode = md5(uniqid(rand(), true));
-
-                $stmt = $pdo->prepare("INSERT INTO registered_user (user_fname, user_lname, age, user_email, user_password) VALUES (:firstName, :lastName, :age, :email, :hashedPassword)");
-                $stmt->execute([
-                    'firstName' => $firstName,
-                    'lastName' => $lastName,
-                    'age' => $age,
-                    'email' => $email,
-                    'hashedPassword' => $hashedPassword
-                ]);
-
-                // get ID of registered user
-                $registeredUserId = $pdo->lastInsertId();
-                $_SESSION['firstname'] = $firstName;
-                $_SESSION['user_id'] = $registeredUserId;
-            }
-        }
-    } else {
-        echo "Some data is not correct!";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container-fluid" style="background-color: #ffdc73; min-height: 100vh; position: relative;">
 
     <nav class="navbar navbar-expand-lg navbar-light" style="font-family: 'Poiret One', sans-serif; font-weight: bold;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -89,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a class="nav-link" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT</a>
+                    <a class="nav-link" href="about.php">ABOUT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="services.php">SERVICES</a>
@@ -221,7 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
         <div class="container d-flex flex-column justify-content-center align-items-center " style="position: relative;">
             <div class="section4 d-flex flex-row">
-                <a href="#" class="s"><img src="index-images/wedding.png" style="height: 140px;"></a>
+                <a href="hairstyle_salons.php" class="s"><img src="index-images/wedding.png" style="height: 140px;"></a>
                 <h5 class="txt">MEET OUR STYLISTS</h5>
             </div>
             <div class="section5 d-flex flex-row">
@@ -301,7 +251,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            <br><br>
             <h3 style="font-family: 'Poiret One', sans-serif; font-weight: bold;">Elizabeth Wein</h3>
             <br><br><br>
-            <img src="index-images/quotation.png" style="width: 70px;margin: auto; right: 0;">
+            <img src="index-images/quotation.png" style="width: 70px; right: 0; margin-left: 90%;">
 
         </div>
         <img src="index-images/frame2.png" style="width: 1300px;">
@@ -386,7 +336,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="col-3">
     <div class="container d-flex flex-column justify-content-start" style="margin-top: 100px;">
         <a href="index.php" class="nav1">Home</a>
-        <a href="#" class="nav1">About Us</a>
+        <a href="about.php" class="nav1">About Us</a>
         <a href="services.php" class="nav1">Services</a>
         <a href="hairstyle_salons.php" class="nav1">Hair Salons</a>
         <a href="#" class="nav1">Contact Us</a>

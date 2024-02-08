@@ -41,7 +41,7 @@ include 'db_config.php';
 <body>
 <div class="container">
 
-    <form class="form-signup text-center"  id="login-form" method="post" action="login_check.php">
+    <form class="form-signup text-center"  id="login-form" method="post" action="login-user-check.php">
         <div class="logo">
             <img src="index-images/logo.png">
         </div>
@@ -66,7 +66,7 @@ include 'db_config.php';
             <a href="login-as-stylist.php" class="link" style="background-color: #c8a2c8; color: white;  padding: 10px; text-decoration: none; border-radius: 5px; margin-top: 10px;">Log in</a>
         </div>
         <hr>
-        <a href="admin-login.php">Admin Dashboard</a>
+        <a href="login-as-admin.php">Admin Dashboard</a>
 </div>
 </form>
 </div>

@@ -1,6 +1,9 @@
 <?php
 include("db_config.php");
 
+session_start();
+$registeredUserId = $_SESSION['user_id'];
+
 $host = 'localhost';
 $db_name = 'hairdresser';
 $username = 'root';
@@ -19,14 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["code"])) {
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
-        $stmt = $pdo->prepare("UPDATE registered_user SET is_active = 1, activation_code = NULL WHERE id_user = :userId");
-        $stmt->execute(['userId' => $user['user_id']]);
 
-        echo "Your account has been successfully activated. You can now log in: <a href='http://localhost:80/web_programming_project/login-as-stylist.php?code'>Log in</a>";
-    } else {
-        echo "Invalid activation code or account is already activated. Debug info: " . print_r($stmt->errorInfo(), true);
-    }
+        echo "Your account has been successfully activated. You can now log in: <a href='http://localhost:80/hairdresser_project/login-as-user.php?code'>Log in</a>";
+
 } else {
     echo "Invalid request.";
 }
+

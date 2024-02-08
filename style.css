@@ -216,3 +216,22 @@
     width: fit-content;
     margin-left: 20px;
 }
+.javascriptOption{
+    padding: 20px;
+    background-color: #c8a2c8;
+    border: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+#booking{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 60vh;
+    position: relative;
+    font-family: "Poiret One", sans-serif;
+    border:1px solid #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0.2, 0.2, 0.2, 0.6);
+    padding: 20px;
+}

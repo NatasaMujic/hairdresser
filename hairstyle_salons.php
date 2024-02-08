@@ -29,7 +29,7 @@
                 <a class="nav-link" href="index.php">HOME</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ABOUT</a>
+                <a class="nav-link" href="about.php">ABOUT</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="services.php">SERVICES</a>
@@ -58,21 +58,41 @@
     <h2 style="font-family: 'Poiret One', sans-serif; font-weight: bold;">See all ours stylists and salons</h2>
 
     </div>
+    <?php
+    include("db_config.php");
 
-    <div class="container d-flex flex-column justify-content-center" style="margin-top: 40px;">
+
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $query = "SELECT * FROM registered_stylist";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+            echo '  <div class="container d-flex flex-column justify-content-center" style="margin-top: 40px;">
         <div class="container d-flex flex-row">
             <div class="d-flex flex-column">
-                <h3 class="service-title">Julianna Roberts</h3>
-                <p class="service-paragraph">6451 N Blackstone Ave, Fresno, 93710</p>
-                <p class="service-paragraph">It's all in the name. Safely take down your hairstyle so you can start fresh.</p>
-                <hr style="width: 150vh; margin-left: 20px;">
-                    <h3 class="service-title">Srboljub Prodanovic</h3>
-                <p class="service-paragraph">6451 N Blackstone Ave, Fresno, 93710</p>
-                <p class="service-paragraph">It's all in the name. Safely take down your hairstyle so you can start fresh.</p>
+                <h3 class="service-title"> Stylist name: ' . $row["stylist_fname"] . '  ' . $row["stylist_lname"] . ' </h3>
+                <p class="service-paragraph"> Email: ' . $row["email"] . '</p>
+                <p class="service-paragraph"> Salon name: ' . $row["salon_name"] . '</p>
+                <p class="service-paragraph">Phone number: ' . $row["phone_number"] . '</p>
+                <p class="service-paragraph">State: ' . $row["state"] . '</p>
+                <p class="service-paragraph">City: ' . $row["city"] . '</p>
+                <p class="service-paragraph">Stylist website: ' . $row["website"] . '</p>
                 <hr style="width: 150vh; margin-left: 20px;">
             </div>
         </div>
-    </div>
+    </div>';
+        }
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
+
+    ?>
+
 
 </div>
 
@@ -100,7 +120,7 @@
         <div class="col-3">
             <div class="container d-flex flex-column justify-content-start" style="margin-top: 100px;">
                 <a href="index.php" class="nav1">Home</a>
-                <a href="#" class="nav1">About Us</a>
+                <a href="about.php" class="nav1">About Us</a>
                 <a href="services.php" class="nav1">Services</a>
                 <a href="hairstyle_salons.php" class="nav1">Hair Salons</a>
                 <a href="#" class="nav1">Contact Us</a>

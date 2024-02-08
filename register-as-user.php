@@ -1,5 +1,6 @@
 <?php
  include 'db_config.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +40,7 @@
 <body>
 
 <div class="container">
-    <form class="form-signup text-center" id="registerForm" method="post" action="index.php">
+    <form class="form-signup text-center" id="registerForm" method="post" action="php-registration-user.php">
         <div class="logo">
             <img src="index-images/logo.png">        </div>
         <h2>Register as user</h2>
